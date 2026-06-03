@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Диана & Роман | Приглашение на свадьбу | 05.09.2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Evolventa';
+            src: local('Evolventa'), local('Evolventa-Regular');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Evolventa';
+            src: local('Evolventa Bold'), local('Evolventa-Bold');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            color: #111111;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .invitation-card {
+            background: #FFFFFF;
+            overflow: hidden;
+        }
+
+        .fluid-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.4s ease, filter 0.3s ease;
+        }
+
+        .photo-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2.5rem 0;
+            align-items: center;
+        }
+
+        .photo-col {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .hero-section {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 0px;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-overlay {
+            text-align: center;
+            margin-top: -4rem;
+            position: relative;
+            z-index: 2;
+            background: white;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+            border: 1px solid #EFEFEF;
+        }
+
+        .date-badge {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #555555;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            font-family: 'Evolventa', 'Plus Jakarta Sans', monospace;
+        }
+
+        .hero-overlay h1 {
+            font-family: 'Evolventa', 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .names-main {
+            font-family: 'Evolventa', 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 500;
+            color: #1A1A1A;
+            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .invite-sub {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .event-details {
+            text-align: center;
+            margin: 3rem 0 2rem;
+        }
+
+        .event-date {
+            font-family: 'Evolventa', 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .event-date span {
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: #555;
+        }
+
+        .event-place {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #333;
+            margin: 0.5rem 0;
+        }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: #ccc;
+            margin: 1.5rem auto;
+        }
+
+        .timeline-future {
+            background: #F8F8F8;
+            padding: 2rem 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid #E0E0E0;
+        }
+
+        .timeline-future-title {
+            font-family: 'Evolventa', 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #222;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-card {
+            flex: 1;
+            min-width: 180px;
+            background: white;
+            padding: 1.2rem 0.8rem;
+            border: 1px solid #EAEAEA;
+            transition: all 0.2s ease;
+        }
+
+        .timeline-card:hover {
+            border-color: #AAAAAA;
+            transform: translateY(-2px);
+        }
+
+        .timeline-time {
+            font-family: 'Evolventa', 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .countdown-section {
+            background: #F8F8F8;
+            padding: 1.8rem 1rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .countdown-title {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 1.2rem;
+            font-family: 'Evolventa', 'Plus Jakarta Sans', monospace;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .timer-block {
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .timer-number {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'Evolventa', 'Plus Jakarta Sans', monospace;
+            color: #111;
+        }
+
+        .timer-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #777;
+        }
+
+        .story-text {
+            text-align: left;
+        }
+        .story-text h3 {
+            font-family: 'Evolventa', 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .story-text p {
+            font-size: 0.85rem;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .dresscode-detailed {
+            border-top: 1px solid #E5E5E5;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .dresscode-title {
+            font-family: 'Evolventa', 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .dresscode-intro {
+            font-size: 0.85rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .dresscode-rules {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .dresscode-rule {
+            flex: 1;
+            min-width: 200px;
+            background: #FAFAFA;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .dresscode-rule h4 {
+            font-family: 'Evolventa', 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .dresscode-rule p {
+            font-size: 0.8rem;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .map-button {
+            background: transparent;
+            color: #111;
+            border: 1px solid #111;
+            padding: 0.6rem 1.5rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-block;
+            margin: 0.5rem 0;
+            font-family: 'Evolventa', 'Plus Jakarta Sans', monospace;
+        }
+
+        .map-button:hover {
+            background: #111;
+            color: white;
+        }
+
+        .contacts-section {
+            background: #FFFFFF;
+            padding: 2rem 1.8rem;
+            margin: 2rem 0 1rem;
+            border: 1px solid #E5E5E5;
+            text-align: center;
+        }
+
+        .contacts-title {
+            font-family: 'Evolventa', 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #000;
+            font-weight: 700;
+        }
+
+        .contacts-sub {
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            color: #666;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .contacts-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-card {
+            flex: 1;
+            min-width: 220px;
+            padding: 1.2rem;
+            background: #FCFCFC;
+            border: 1px solid #EEEEEE;
+            transition: all 0.2s ease;
+        }
+
+        .contact-card:hover {
+            border-color: #CCCCCC;
+            background: #FFFFFF;
+        }
+
+        .contact-name {
+            font-family: 'Evolventa', 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-phone {
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0.5rem 0;
+            letter-spacing: 0.3px;
+        }
+
+        .contact-phone a {
+            color: #111;
+            text-decoration: none;
+            border-bottom: 1px solid #DDD;
+            transition: border 0.2s;
+        }
+
+        .contact-phone a:hover {
+            border-bottom-color: #000;
+        }
+
+        .contact-tg {
+            font-size: 0.85rem;
+            color: #444;
+            margin-top: 0.5rem;
+        }
+
+        .contact-tg a {
+            color: #111;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #DDD;
+        }
+
+        .contact-tg a:hover {
+            border-bottom-color: #000;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 1.5rem;
+        }
+
+        @media (max-width: 760px) {
+            .container {
+                padding: 1rem;
+            }
+            .hero-overlay h1 {
+                font-size: 2rem;
+            }
+            .names-main {
+                font-size: 1.6rem;
+            }
+            .photo-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .contacts-grid {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .timeline-grid {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            .timeline-card {
+                min-width: 240px;
+                width: 100%;
+            }
+            .dresscode-rules {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .story-text h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .timer-block {
+                min-width: 55px;
+            }
+            .timer-number {
+                font-size: 1.5rem;
+            }
+            .event-date {
+                font-size: 1.6rem;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .photo-row, .countdown-section, .contacts-section, .timeline-future, .dresscode-detailed {
+            animation: fadeIn 0.7s ease backwards;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="invitation-card">
+
+        <!-- ГЛАВНОЕ ФОТО 3.PNG -->
+        <div class="hero-section">
+            <div class="hero-image">
+                <img class="fluid-img" src="3.png" alt="Диана и Роман — главное фото" style="max-height: 70vh; width: 100%; object-fit: cover;">
+            </div>
+            <div class="hero-overlay">
+                <div class="date-badge">05.09.2026</div>
+                <h1>Мы женимся!</h1>
+                <div class="names-main">Диана & Роман</div>
+                <div class="invite-sub">Приглашаем вас стать частью нашей истории</div>
+            </div>
+        </div>
+
+        <!-- ДЕТАЛИ ТОРЖЕСТВА -->
+        <div class="event-details">
+            <div class="event-date">05.09.2026<br><span>СУББОТА</span></div>
+            <div class="event-place">Брестская область, Пинский район, Молотковичский сельсовет, 45</div>
+            <div class="event-place" style="font-weight: 500; margin-top: 0;">Банкетный зал «Облака»</div>
+            <div class="divider"></div>
+        </div>
+
+        <!-- ПРОГРАММА ДНЯ -->
+        <div class="timeline-future">
+            <div class="timeline-future-title">ПРОГРАММА ДНЯ</div>
+            <div class="timeline-grid">
+                <div class="timeline-card">
+                    <div class="timeline-time">14:30</div>
+                    <div class="timeline-desc">Сбор гостей<br>Фуршет</div>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-time">15:00</div>
+                    <div class="timeline-desc">Церемония<br>Открытая регистрация</div>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-time">16:00</div>
+                    <div class="timeline-desc">Банкет<br>Праздничный ужин, музыка и танцы</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ТАЙМЕР -->
+        <div class="countdown-section">
+            <div class="countdown-title">До нашего торжества</div>
+            <div class="timer" id="countdown-timer">
+                <div class="timer-block"><div class="timer-number" id="days">00</div><div class="timer-label">ДНЕЙ</div></div>
+                <div class="timer-block"><div class="timer-number" id="hours">00</div><div class="timer-label">ЧАСОВ</div></div>
+                <div class="timer-block"><div class="timer-number" id="minutes">00</div><div class="timer-label">МИНУТ</div></div>
+                <div class="timer-block"><div class="timer-number" id="seconds">00</div><div class="timer-label">СЕКУНД</div></div>
+            </div>
+        </div>
+
+        <!-- ФОТО 2.PNG С ТЕКСТОМ "Наша любовь" -->
+        <div class="photo-row">
+            <div class="photo-col">
+                <img class="fluid-img" src="2.png" alt="Диана и Роман" style="border-radius: 2px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+            </div>
+            <div class="photo-col story-text">
+                <h3>Наша любовь</h3>
+                <p>Сказать «да» друг другу — самое важное решение в нашей жизни. Мы будем счастливы разделить этот момент с вами.</p>
+            </div>
+        </div>
+
+        <!-- ФОТО 1.WEBP С ТЕКСТОМ "День, который мы запомним навсегда" -->
+        <div class="photo-row" style="flex-direction: row-reverse;">
+            <div class="photo-col">
+                <img class="fluid-img" src="1.webp" alt="Счастливые моменты" style="border-radius: 2px;">
+            </div>
+            <div class="photo-col story-text">
+                <h3>День, который мы запомним навсегда</h3>
+                <p>Тёплая атмосфера, искренние улыбки и танцы до утра — мы верим, что этот вечер станет особенным для каждого из вас.</p>
+            </div>
+        </div>
+
+        <!-- ФОТО 4.PNG С ТЕКСТОМ ПРО ФОТО И ВИДЕО -->
+        <div class="photo-row">
+            <div class="photo-col">
+                <img class="fluid-img" src="4.png" alt="Свадебная атмосфера" style="border-radius: 2px;">
+            </div>
+            <div class="photo-col story-text">
+                <h3>Профессиональная фотосъёмка</h3>
+                <p>На протяжении всего вечера с вами будет работать профессиональный фотограф и видеограф. Самые искренние и живые кадры останутся в нашем семейном архиве. Если вы захотите поделиться своими снимками — присылайте их в Telegram, мы соберём общий альбом.</p>
+            </div>
+        </div>
+
+        <!-- ДРЕСС-КОД -->
+        <div class="dresscode-detailed">
+            <div class="dresscode-title">ДРЕСС-КОД</div>
+            <div class="dresscode-intro">
+                Чтобы подчеркнуть значимость этого мероприятия, просим остановить выбор на соответствующих случаю вечерних нарядах.
+            </div>
+            <div class="dresscode-rules">
+                <div class="dresscode-rule">
+                    <h4>Женщины</h4>
+                    <p>no white, no red</p>
+                </div>
+                <div class="dresscode-rule">
+                    <h4>Мужчины</h4>
+                    <p>Вечерний костюм или пиджак и брюки</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- КНОПКА КАРТЫ -->
+        <div style="text-align: center;">
+            <button id="openMapBtn" class="map-button">ОТКРЫТЬ КАРТУ · БАНКЕТНЫЙ ЗАЛ «ОБЛАКА»</button>
+        </div>
+
+        <!-- КОНТАКТЫ ДЛЯ ПОДТВЕРЖДЕНИЯ -->
+        <div class="contacts-section">
+            <div class="contacts-title">Подтвердить присутствие</div>
+            <div class="contacts-sub">Пожалуйста, сообщите нам любым удобным способом</div>
+            
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <div class="contact-name">Роман</div>
+                    <div class="contact-phone">
+                        <a href="tel:+375293598307">+375 (29) 359-83-07</a>
+                    </div>
+                    <div class="contact-tg">
+                        Telegram: <a href="https://t.me/lositskiy" target="_blank">@lositskiy</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-name">Диана</div>
+                    <div class="contact-phone">
+                        <a href="tel:+375445613308">+375 (44) 561-33-08</a>
+                    </div>
+                    <div class="contact-tg">
+                        Telegram: доступен по номеру
+                    </div>
+                </div>
+            </div>
+            <p style="font-size: 0.7rem; color: #888; margin-top: 1.2rem; letter-spacing: 0.3px;">
+                Позвоните или напишите в Telegram — мы будем рады вашему ответу.
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>С любовью, Диана и Роман</p>
+            <p>05.09.2026 | Суббота | Начало в 14:30</p>
+            <p style="margin-top:8px; font-size:0.6rem;">Ждём вас в этот важный день!</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateCountdown() {
+        const weddingDate = new Date(2026, 8, 5, 0, 0, 0);
+        const now = new Date();
+        const diff = weddingDate - now;
+
+        if (diff <= 0) {
+            document.getElementById('days').innerText = '00';
+            document.getElementById('hours').innerText = '00';
+            document.getElementById('minutes').innerText = '00';
+            document.getElementById('seconds').innerText = '00';
+            const titleDiv = document.querySelector('.countdown-title');
+            if (titleDiv && diff <= 0 && new Date().toDateString() === weddingDate.toDateString()) titleDiv.innerText = "СЕГОДНЯ НАШ ДЕНЬ!";
+            else if (diff <= 0) titleDiv.innerText = "МЫ ПОЖЕНИЛИСЬ! СПАСИБО, ЧТО БЫЛИ С НАМИ";
+            return;
+        }
+
+        const totalSeconds = Math.floor(diff / 1000);
+        const days = Math.floor(totalSeconds / 86400);
+        const hours = Math.floor((totalSeconds % 86400) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        document.getElementById('days').innerText = String(days).padStart(2, '0');
+        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    const mapBtn = document.getElementById('openMapBtn');
+    const fullAddress = "Брестская область, Пинский район, Молотковичский сельсовет, 45, банкетный зал Облака, Беларусь";
+    mapBtn.addEventListener('click', () => {
+        window.open(`https://yandex.ru/maps/?text=${encodeURIComponent(fullAddress)}`, '_blank');
+    });
+</script>
+</body>
+</html>
